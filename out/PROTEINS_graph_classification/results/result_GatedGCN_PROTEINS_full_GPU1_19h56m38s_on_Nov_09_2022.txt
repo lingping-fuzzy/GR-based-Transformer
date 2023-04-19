@@ -1,0 +1,38 @@
+Dataset: PROTEINS_full,
+Model: GatedGCN
+
+params={'seed': 96, 'epochs': 100, 'batch_size': 20, 'init_lr': 0.0001, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-06, 'weight_decay': 0.0, 'print_epoch_interval': 5, 'max_time': 12}
+
+net_params={'L': 3, 'hidden_dim': 108, 'out_dim': 108, 'residual': True, 'readout': 'mean', 'in_feat_dropout': 0.0, 'dropout': 0.0, 'batch_norm': True, 'edge_feat': False, 'layer_norm': False, 'pos_enc': False, 'lap_pos_enc': False, 'pos_enc_dim': 2, 'device': device(type='cuda'), 'gpu_id': 1, 'batch_size': 20, 'in_dim': 29, 'n_classes': 2, 'total_param': 191783}
+
+GatedGCNNet(
+  (embedding_h): Linear(in_features=29, out_features=108, bias=True)
+  (embedding_e): Linear(in_features=29, out_features=108, bias=True)
+  (layers): ModuleList(
+    (0): GatedGCNLayer(in_channels=108, out_channels=108)
+    (1): GatedGCNLayer(in_channels=108, out_channels=108)
+    (2): GatedGCNLayer(in_channels=108, out_channels=108)
+  )
+  (MLP_layer): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=108, out_features=54, bias=True)
+      (1): Linear(in_features=54, out_features=27, bias=True)
+      (2): Linear(in_features=27, out_features=2, bias=True)
+    )
+  )
+)
+
+Total Parameters: 191783
+
+
+    FINAL RESULTS
+TEST ACCURACY averaged: 76.8843 with s.d. 4.8644
+TRAIN ACCURACY averaged: 78.1900 with s.d. 0.2891
+
+
+    Average Convergence Time (Epochs): 99.0000 with s.d. 0.0000
+Total Time Taken: 0.1967 hrs
+Average Time Per Epoch: 1.7378 s
+
+
+All Splits Test Accuracies: [0.8125, 0.8214285714285714, 0.7117117117117117, 0.7297297297297297]

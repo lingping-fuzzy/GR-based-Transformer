@@ -1,0 +1,10 @@
+Dataset: ZINC,
+Model: GCN
+
+params={'seed': 1, 'epochs': 1000, 'batch_size': 20, 'init_lr': 0.0007, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 10, 'min_lr': 1e-05, 'weight_decay': 0.0, 'print_epoch_interval': 5, 'max_time': 12}
+
+net_params={'wl_pos_enc': False, 'full_graph': False, 'edge_feat': False, 'L': 3, 'hidden_dim': 64, 'out_dim': 64, 'pos_enc': True, 'lap_pos_enc': True, 'pos_enc_dim': 8, 'layer_norm': False, 'residual': True, 'readout': 'mean', 'in_feat_dropout': 0.0, 'dropout': 0.0, 'batch_norm': True, 'self_loop': False, 'device': device(type='cuda'), 'gpu_id': 2, 'batch_size': 20, 'num_atom_type': 28, 'num_bond_type': 4, 'total_param': 17281}
+
+
+Total Parameters: 17281
+

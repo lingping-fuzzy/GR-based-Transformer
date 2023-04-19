@@ -1,0 +1,37 @@
+Dataset: MUTAG,
+Model: GatedGCN
+
+params={'seed': 96, 'epochs': 1000, 'batch_size': 20, 'init_lr': 0.0007, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-06, 'weight_decay': 0.0, 'print_epoch_interval': 5, 'max_time': 12}
+
+net_params={'L': 2, 'hidden_dim': 30, 'out_dim': 30, 'residual': True, 'readout': 'mean', 'in_feat_dropout': 0.0, 'dropout': 0.1, 'batch_norm': True, 'edge_feat': False, 'layer_norm': False, 'pos_enc': True, 'lap_pos_enc': True, 'pos_enc_dim': 4, 'device': device(type='cuda'), 'gpu_id': 1, 'batch_size': 20, 'in_dim': 7, 'n_classes': 2, 'total_param': 10613}
+
+GatedGCNNet(
+  (embedding_h): Linear(in_features=7, out_features=30, bias=True)
+  (embedding_e): Linear(in_features=7, out_features=30, bias=True)
+  (layers): ModuleList(
+    (0): GatedGCNLayer(in_channels=30, out_channels=30)
+    (1): GatedGCNLayer(in_channels=30, out_channels=30)
+  )
+  (MLP_layer): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=30, out_features=15, bias=True)
+      (1): Linear(in_features=15, out_features=7, bias=True)
+      (2): Linear(in_features=7, out_features=2, bias=True)
+    )
+  )
+)
+
+Total Parameters: 10613
+
+
+    FINAL RESULTS
+TEST ACCURACY averaged: 77.6316 with s.d. 6.8370
+TRAIN ACCURACY averaged: 82.3333 with s.d. 1.5275
+
+
+    Average Convergence Time (Epochs): 334.7500 with s.d. 35.1595
+Total Time Taken: 0.0761 hrs
+Average Time Per Epoch: 0.1916 s
+
+
+All Splits Test Accuracies: [0.6842105263157895, 0.8421052631578947, 0.7368421052631579, 0.8421052631578947]

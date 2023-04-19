@@ -1,0 +1,38 @@
+Dataset: ENZYMES,
+Model: GraphSage
+
+params={'seed': 42, 'epochs': 1000, 'batch_size': 20, 'init_lr': 0.0007, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-06, 'weight_decay': 0.0, 'print_epoch_interval': 5, 'max_time': 12}
+
+net_params={'L': 3, 'hidden_dim': 72, 'out_dim': 72, 'residual': True, 'readout': 'mean', 'in_feat_dropout': 0.0, 'dropout': 0.0, 'batch_norm': True, 'sage_aggregator': 'maxpool', 'pos_enc': False, 'lap_pos_enc': False, 'pos_enc_dim': 2, 'device': device(type='cuda'), 'gpu_id': 0, 'batch_size': 20, 'in_dim': 18, 'n_classes': 6, 'total_param': 52296}
+
+GraphSageNet(
+  (embedding_h): Linear(in_features=18, out_features=72, bias=True)
+  (in_feat_dropout): Dropout(p=0.0, inplace=False)
+  (layers): ModuleList(
+    (0): GraphSageLayer(in_channels=72, out_channels=72, aggregator=maxpool, residual=True)
+    (1): GraphSageLayer(in_channels=72, out_channels=72, aggregator=maxpool, residual=True)
+    (2): GraphSageLayer(in_channels=72, out_channels=72, aggregator=maxpool, residual=True)
+  )
+  (MLP_layer): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=72, out_features=36, bias=True)
+      (1): Linear(in_features=36, out_features=18, bias=True)
+      (2): Linear(in_features=18, out_features=6, bias=True)
+    )
+  )
+)
+
+Total Parameters: 52296
+
+
+    FINAL RESULTS
+TEST ACCURACY averaged: 16.6667 with s.d. 0.0000
+TRAIN ACCURACY averaged: 16.6667 with s.d. 0.0000
+
+
+    Average Convergence Time (Epochs): 259.0000 with s.d. 0.0000
+Total Time Taken: 0.2943 hrs
+Average Time Per Epoch: 1.0040 s
+
+
+All Splits Test Accuracies: [0.16666666666666666, 0.16666666666666666, 0.16666666666666666, 0.16666666666666666]

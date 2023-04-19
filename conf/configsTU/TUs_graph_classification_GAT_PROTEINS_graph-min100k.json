@@ -1,0 +1,47 @@
+{
+    "gpu": {
+        "use": true,
+        "id": 0
+    },
+    
+    "model": "GAT",
+    "dataset": "MUTAG",
+    
+    "out_dir": "out/MUTAG_graph_class_graph_min/",
+    
+    "params": {
+        "seed": 41,
+        "epochs": 1000,
+        "batch_size": 20,
+        "init_lr": 7e-4,
+        "lr_reduce_factor": 0.5,
+        "lr_schedule_patience": 25,
+        "min_lr": 1e-6,
+        "weight_decay": 0.0,
+        "print_epoch_interval": 5,
+        "max_time": 12
+    },
+    
+    "net_params": {
+        "L": 2,
+        "hidden_dim": 15,
+        "out_dim": 30,
+        "residual": true,
+        "readout": "mean",
+        "n_heads": 2,
+        "in_feat_dropout": 0.0,
+        "dropout": 0.1,
+        "batch_norm": true,
+        "self_loop": false,
+		"pos_enc": true,
+        "lap_pos_enc": true,
+        "pos_enc_dim": 4,
+        "layer_norm": false,
+        "hidden_rank": 2,
+        "global_batch": true,
+        "global_attention_type": "graph-min",
+        "use_dense": false,
+        "mask_rate": 0.05,
+        "use_bias": false
+    }
+}

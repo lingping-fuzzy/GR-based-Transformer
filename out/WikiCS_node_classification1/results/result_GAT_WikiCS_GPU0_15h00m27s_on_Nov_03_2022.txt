@@ -1,0 +1,38 @@
+Dataset: WikiCS,
+Model: GAT
+
+params={'seed': 42, 'epochs': 1000, 'init_lr': 0.01, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-05, 'weight_decay': 0.0005, 'print_epoch_interval': 5, 'max_time': 24}
+
+net_params={'L': 3, 'n_heads': 3, 'hidden_dim': 33, 'out_dim': 99, 'residual': True, 'readout': 'mean', 'in_feat_dropout': 0.0, 'dropout': 0.6, 'batch_norm': True, 'self_loop': False, 'pos_enc': True, 'pos_enc_dim': 30, 'lap_pos_enc': True, 'layer_norm': False, 'hidden_rank': 2, 'global_batch': True, 'global_attention_type': 'global-max', 'use_dense': False, 'mask_rate': 0.05, 'use_bias': False, 'device': device(type='cuda'), 'gpu_id': 0, 'in_dim': 300, 'n_classes': 10, 'total_param': 218507}
+
+GATNet(
+  (embedding_h): Linear(in_features=300, out_features=99, bias=True)
+  (in_feat_dropout): Dropout(p=0.0, inplace=False)
+  (layers): ModuleList(
+    (0): GraphTransformerLayer(in_channels=99, out_channels=99, heads=3, residual=True)
+    (1): GraphTransformerLayer(in_channels=99, out_channels=99, heads=3, residual=True)
+    (2): GraphTransformerLayer(in_channels=99, out_channels=99, heads=3, residual=True)
+  )
+  (MLP_layer): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=99, out_features=49, bias=True)
+      (1): Linear(in_features=49, out_features=24, bias=True)
+      (2): Linear(in_features=24, out_features=10, bias=True)
+    )
+  )
+)
+
+Total Parameters: 218507
+
+
+    FINAL RESULTS
+TEST ACCURACY averaged: 75.1668 with s.d. 1.0931
+TRAIN ACCURACY averaged: 99.9483 with s.d. 0.1231
+
+
+    Average Convergence Time (Epochs): 296.8500 with s.d. 8.3143
+Total Time Taken: 0.4153 hrs
+Average Time Per Epoch: 0.2411 s
+
+
+All Splits Test Accuracies: [0.7463656576021892, 0.7550880793569352, 0.7709936719685309, 0.741063793398324, 0.7451684624593808, 0.7662048913972977, 0.7549170514793911, 0.7354198734393707, 0.7590217205404481, 0.7485890200102616, 0.7335385667863862, 0.7538908842141269, 0.7444843509492047, 0.7431161279288524, 0.7648366683769454, 0.7588506926629041, 0.7407217376432359, 0.7699675047032666, 0.7424320164186763, 0.75867966478536]

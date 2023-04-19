@@ -1,0 +1,59 @@
+Dataset: CYCLES,
+Model: MoNet
+
+params={'seed': 96, 'epochs': 1000, 'batch_size': 5, 'init_lr': 0.0005, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 5, 'min_lr': 1e-06, 'weight_decay': 0.0, 'print_epoch_interval': 5, 'max_time': 12}
+
+net_params={'num_train_data': 200, 'L': 3, 'hidden_dim': 120, 'in_dim': 1, 'out_dim': 120, 'residual': True, 'readout': 'sum', 'kernel': 3, 'pseudo_dim_MoNet': 2, 'in_feat_dropout': 0.0, 'dropout': 0.0, 'batch_norm': True, 'pos_enc': True, 'pos_enc_dim': 20, 'lap_pos_enc': True, 'layer_norm': False, 'device': device(type='cuda'), 'gpu_id': 1, 'batch_size': 5, 'in_dim_edge': 1, 'n_classes': 2, 'total_param': 140126}
+
+MoNet(
+  (embedding_h): Linear(in_features=1, out_features=120, bias=True)
+  (layers): ModuleList(
+    (0): GMMLayer(
+      (fc): Linear(in_features=120, out_features=360, bias=False)
+      (bn_node_h): BatchNorm1d(120, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): GMMLayer(
+      (fc): Linear(in_features=120, out_features=360, bias=False)
+      (bn_node_h): BatchNorm1d(120, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (2): GMMLayer(
+      (fc): Linear(in_features=120, out_features=360, bias=False)
+      (bn_node_h): BatchNorm1d(120, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (pseudo_proj): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=2, out_features=2, bias=True)
+      (1): Tanh()
+    )
+    (1): Sequential(
+      (0): Linear(in_features=2, out_features=2, bias=True)
+      (1): Tanh()
+    )
+    (2): Sequential(
+      (0): Linear(in_features=2, out_features=2, bias=True)
+      (1): Tanh()
+    )
+  )
+  (MLP_layer): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=120, out_features=60, bias=True)
+      (1): Linear(in_features=60, out_features=30, bias=True)
+      (2): Linear(in_features=30, out_features=2, bias=True)
+    )
+  )
+)
+
+Total Parameters: 140126
+
+
+    FINAL RESULTS
+TEST ACCURACY: 71.9900
+TRAIN ACCURACY: 75.0000
+
+
+    Convergence Time (Epochs): 110.0000
+Total Time Taken: 0.3878 hrs
+Average Time Per Epoch: 11.8735 s
+
+

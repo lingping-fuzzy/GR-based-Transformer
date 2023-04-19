@@ -1,0 +1,59 @@
+Dataset: ZINC,
+Model: MoNet
+
+params={'seed': 1, 'epochs': 1000, 'batch_size': 20, 'init_lr': 0.0007, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 10, 'min_lr': 1e-05, 'weight_decay': 0.0, 'print_epoch_interval': 5, 'max_time': 12}
+
+net_params={'wl_pos_enc': False, 'full_graph': False, 'edge_feat': False, 'L': 3, 'hidden_dim': 64, 'out_dim': 64, 'pos_enc': True, 'lap_pos_enc': True, 'pos_enc_dim': 8, 'layer_norm': False, 'residual': True, 'readout': 'mean', 'kernel': 3, 'pseudo_dim_MoNet': 2, 'in_feat_dropout': 0.0, 'dropout': 0.0, 'batch_norm': True, 'device': device(type='cuda'), 'gpu_id': 2, 'batch_size': 20, 'num_atom_type': 28, 'num_bond_type': 4, 'total_param': 41911}
+
+MoNet(
+  (embedding_h): Embedding(28, 64)
+  (layers): ModuleList(
+    (0): GMMLayer(
+      (fc): Linear(in_features=64, out_features=192, bias=False)
+      (bn_node_h): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): GMMLayer(
+      (fc): Linear(in_features=64, out_features=192, bias=False)
+      (bn_node_h): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (2): GMMLayer(
+      (fc): Linear(in_features=64, out_features=192, bias=False)
+      (bn_node_h): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (pseudo_proj): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=2, out_features=2, bias=True)
+      (1): Tanh()
+    )
+    (1): Sequential(
+      (0): Linear(in_features=2, out_features=2, bias=True)
+      (1): Tanh()
+    )
+    (2): Sequential(
+      (0): Linear(in_features=2, out_features=2, bias=True)
+      (1): Tanh()
+    )
+  )
+  (MLP_layer): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=64, out_features=32, bias=True)
+      (1): Linear(in_features=32, out_features=16, bias=True)
+      (2): Linear(in_features=16, out_features=1, bias=True)
+    )
+  )
+)
+
+Total Parameters: 41911
+
+
+    FINAL RESULTS
+TEST MAE: 0.4077
+TRAIN MAE: 0.3255
+
+
+    Convergence Time (Epochs): 180.0000
+Total Time Taken: 0.5727 hrs
+Average Time Per Epoch: 10.1119 s
+
+

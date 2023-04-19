@@ -1,0 +1,42 @@
+Dataset: CYCLES,
+Model: MLP
+
+params={'seed': 36, 'epochs': 1000, 'batch_size': 20, 'init_lr': 0.0005, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 10, 'min_lr': 1e-06, 'weight_decay': 0.0, 'print_epoch_interval': 5, 'max_time': 12}
+
+net_params={'num_train_data': 200, 'L': 3, 'hidden_dim': 120, 'in_dim': 1, 'out_dim': 120, 'residual': True, 'readout': 'sum', 'gated': False, 'in_feat_dropout': 0.0, 'dropout': 0.0, 'pos_enc': True, 'batch_norm': True, 'pos_enc_dim': 20, 'lap_pos_enc': True, 'layer_norm': False, 'device': device(type='cuda'), 'gpu_id': 3, 'batch_size': 20, 'in_dim_edge': 1, 'n_classes': 2, 'total_param': 38432}
+
+MLPNet(
+  (in_feat_dropout): Dropout(p=0.0, inplace=False)
+  (feat_mlp): Sequential(
+    (0): Linear(in_features=1, out_features=120, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.0, inplace=False)
+    (3): Linear(in_features=120, out_features=120, bias=True)
+    (4): ReLU()
+    (5): Dropout(p=0.0, inplace=False)
+    (6): Linear(in_features=120, out_features=120, bias=True)
+    (7): ReLU()
+    (8): Dropout(p=0.0, inplace=False)
+  )
+  (readout_mlp): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=120, out_features=60, bias=True)
+      (1): Linear(in_features=60, out_features=30, bias=True)
+      (2): Linear(in_features=30, out_features=2, bias=True)
+    )
+  )
+)
+
+Total Parameters: 38432
+
+
+    FINAL RESULTS
+TEST ACCURACY: 50.0000
+TRAIN ACCURACY: 50.0000
+
+
+    Convergence Time (Epochs): 104.0000
+Total Time Taken: 0.0793 hrs
+Average Time Per Epoch: 1.8758 s
+
+

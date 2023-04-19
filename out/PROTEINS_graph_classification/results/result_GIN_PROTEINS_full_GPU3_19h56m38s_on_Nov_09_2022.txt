@@ -1,0 +1,76 @@
+Dataset: PROTEINS_full,
+Model: GIN
+
+params={'seed': 36, 'epochs': 100, 'batch_size': 20, 'init_lr': 0.0001, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-06, 'weight_decay': 0.0, 'print_epoch_interval': 5, 'max_time': 12}
+
+net_params={'L': 3, 'hidden_dim': 108, 'out_dim': 108, 'residual': True, 'readout': 'sum', 'n_mlp_GIN': 2, 'learn_eps_GIN': True, 'neighbor_aggr_GIN': 'sum', 'in_feat_dropout': 0.0, 'dropout': 0.0, 'batch_norm': True, 'layer_norm': False, 'pos_enc': False, 'lap_pos_enc': False, 'pos_enc_dim': 2, 'device': device(type='cuda'), 'gpu_id': 3, 'batch_size': 20, 'in_dim': 29, 'n_classes': 2, 'total_param': 76043}
+
+GINNet(
+  (ginlayers): ModuleList(
+    (0): GINLayer(
+      (apply_func): ApplyNodeFunc(
+        (mlp): MLP(
+          (linears): ModuleList(
+            (0): Linear(in_features=108, out_features=108, bias=True)
+            (1): Linear(in_features=108, out_features=108, bias=True)
+          )
+          (batch_norms): ModuleList(
+            (0): BatchNorm1d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+      )
+      (bn_node_h): BatchNorm1d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): GINLayer(
+      (apply_func): ApplyNodeFunc(
+        (mlp): MLP(
+          (linears): ModuleList(
+            (0): Linear(in_features=108, out_features=108, bias=True)
+            (1): Linear(in_features=108, out_features=108, bias=True)
+          )
+          (batch_norms): ModuleList(
+            (0): BatchNorm1d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+      )
+      (bn_node_h): BatchNorm1d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (2): GINLayer(
+      (apply_func): ApplyNodeFunc(
+        (mlp): MLP(
+          (linears): ModuleList(
+            (0): Linear(in_features=108, out_features=108, bias=True)
+            (1): Linear(in_features=108, out_features=108, bias=True)
+          )
+          (batch_norms): ModuleList(
+            (0): BatchNorm1d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+      )
+      (bn_node_h): BatchNorm1d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (embedding_h): Linear(in_features=29, out_features=108, bias=True)
+  (linears_prediction): ModuleList(
+    (0): Linear(in_features=108, out_features=2, bias=True)
+    (1): Linear(in_features=108, out_features=2, bias=True)
+    (2): Linear(in_features=108, out_features=2, bias=True)
+    (3): Linear(in_features=108, out_features=2, bias=True)
+  )
+  (pool): SumPooling()
+)
+
+Total Parameters: 76043
+
+
+    FINAL RESULTS
+TEST ACCURACY averaged: 59.8898 with s.d. 6.6613
+TRAIN ACCURACY averaged: 60.9296 with s.d. 7.9451
+
+
+    Average Convergence Time (Epochs): 99.0000 with s.d. 0.0000
+Total Time Taken: 0.1541 hrs
+Average Time Per Epoch: 1.3576 s
+
+
+All Splits Test Accuracies: [0.5892857142857143, 0.5, 0.6846846846846847, 0.6216216216216216]

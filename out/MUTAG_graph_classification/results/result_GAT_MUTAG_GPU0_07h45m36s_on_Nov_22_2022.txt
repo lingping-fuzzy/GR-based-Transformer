@@ -1,0 +1,38 @@
+Dataset: MUTAG,
+Model: GAT
+
+params={'seed': 42, 'epochs': 1000, 'batch_size': 20, 'init_lr': 0.0007, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-06, 'weight_decay': 0.0, 'print_epoch_interval': 5, 'max_time': 12}
+
+net_params={'L': 2, 'hidden_dim': 15, 'out_dim': 30, 'residual': True, 'readout': 'sum', 'n_heads': 2, 'in_feat_dropout': 0.0, 'dropout': 0.1, 'batch_norm': True, 'self_loop': False, 'pos_enc': True, 'lap_pos_enc': True, 'pos_enc_dim': 4, 'layer_norm': False, 'hidden_rank': 2, 'global_batch': True, 'global_attention_type': 'global-max', 'use_dense': False, 'mask_rate': 0.05, 'use_bias': False, 'device': device(type='cuda'), 'gpu_id': 0, 'batch_size': 20, 'in_dim': 7, 'n_classes': 2, 'total_param': 12743}
+
+GATNet(
+  (embedding_h): Linear(in_features=7, out_features=30, bias=True)
+  (embedding_lap_pos_enc): Linear(in_features=4, out_features=30, bias=True)
+  (in_feat_dropout): Dropout(p=0.0, inplace=False)
+  (layers): ModuleList(
+    (0): GraphTransformerLayer(in_channels=30, out_channels=30, heads=2, residual=True)
+    (1): GraphTransformerLayer(in_channels=30, out_channels=30, heads=2, residual=True)
+  )
+  (MLP_layer): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=30, out_features=15, bias=True)
+      (1): Linear(in_features=15, out_features=7, bias=True)
+      (2): Linear(in_features=7, out_features=2, bias=True)
+    )
+  )
+)
+
+Total Parameters: 12743
+
+
+    FINAL RESULTS
+TEST ACCURACY averaged: 86.8421 with s.d. 2.6316
+TRAIN ACCURACY averaged: 91.5000 with s.d. 0.7265
+
+
+    Average Convergence Time (Epochs): 315.0000 with s.d. 51.5218
+Total Time Taken: 0.1177 hrs
+Average Time Per Epoch: 0.3228 s
+
+
+All Splits Test Accuracies: [0.8421052631578947, 0.8421052631578947, 0.8947368421052632, 0.8947368421052632]

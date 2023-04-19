@@ -1,0 +1,38 @@
+Dataset: WikiCS,
+Model: GCN
+
+params={'seed': 13, 'epochs': 1000, 'init_lr': 0.01, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-05, 'weight_decay': 0.0005, 'print_epoch_interval': 5, 'max_time': 24}
+
+net_params={'L': 3, 'hidden_dim': 99, 'out_dim': 99, 'residual': True, 'readout': 'mean', 'in_feat_dropout': 0.0, 'dropout': 0.6, 'batch_norm': True, 'self_loop': False, 'pos_enc': False, 'pos_enc_dim': 30, 'lap_pos_enc': False, 'device': device(type='cuda'), 'gpu_id': 2, 'in_dim': 300, 'n_classes': 10, 'total_param': 66443}
+
+GCNNet(
+  (embedding_h): Linear(in_features=300, out_features=99, bias=True)
+  (in_feat_dropout): Dropout(p=0.0, inplace=False)
+  (layers): ModuleList(
+    (0): GCNLayer(in_channels=99, out_channels=99, residual=True)
+    (1): GCNLayer(in_channels=99, out_channels=99, residual=True)
+    (2): GCNLayer(in_channels=99, out_channels=99, residual=True)
+  )
+  (MLP_layer): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=99, out_features=49, bias=True)
+      (1): Linear(in_features=49, out_features=24, bias=True)
+      (2): Linear(in_features=24, out_features=10, bias=True)
+    )
+  )
+)
+
+Total Parameters: 66443
+
+
+    FINAL RESULTS
+TEST ACCURACY averaged: 77.3311 with s.d. 0.8118
+TRAIN ACCURACY averaged: 96.2328 with s.d. 1.3111
+
+
+    Average Convergence Time (Epochs): 329.1000 with s.d. 9.9644
+Total Time Taken: 0.0561 hrs
+Average Time Per Epoch: 0.0254 s
+
+
+All Splits Test Accuracies: [0.7834787070292457, 0.7701385325808107, 0.7807422609885412, 0.7780058149478365, 0.775782452539764, 0.7547460236018471, 0.7682572259278262, 0.7567983581323756, 0.7725329228664273, 0.7709936719685309, 0.7644946126218574, 0.7752693689071318, 0.7703095604583547, 0.7882674876004789, 0.7785188985804686, 0.7776637591927484, 0.7776637591927484, 0.7819394561313494, 0.7697964768257226, 0.7708226440909869]

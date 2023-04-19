@@ -1,0 +1,43 @@
+Dataset: DD,
+Model: MLP
+
+params={'seed': 0, 'epochs': 1000, 'batch_size': 20, 'init_lr': 0.0001, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-06, 'weight_decay': 0.0, 'print_epoch_interval': 5, 'max_time': 12}
+
+net_params={'L': 3, 'hidden_dim': 68, 'out_dim': 68, 'readout': 'mean', 'gated': False, 'in_feat_dropout': 0.0, 'dropout': 0.0, 'pos_enc': True, 'lap_pos_enc': True, 'pos_enc_dim': 2, 'device': device(type='cuda'), 'gpu_id': 0, 'batch_size': 20, 'in_dim': 89, 'n_classes': 2, 'total_param': 18481}
+
+MLPNet(
+  (in_feat_dropout): Dropout(p=0.0, inplace=False)
+  (feat_mlp): Sequential(
+    (0): Linear(in_features=89, out_features=68, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.0, inplace=False)
+    (3): Linear(in_features=68, out_features=68, bias=True)
+    (4): ReLU()
+    (5): Dropout(p=0.0, inplace=False)
+    (6): Linear(in_features=68, out_features=68, bias=True)
+    (7): ReLU()
+    (8): Dropout(p=0.0, inplace=False)
+  )
+  (readout_mlp): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=68, out_features=34, bias=True)
+      (1): Linear(in_features=34, out_features=17, bias=True)
+      (2): Linear(in_features=17, out_features=2, bias=True)
+    )
+  )
+)
+
+Total Parameters: 18481
+
+
+    FINAL RESULTS
+TEST ACCURACY averaged: 71.8879 with s.d. 4.5339
+TRAIN ACCURACY averaged: 72.8165 with s.d. 0.5781
+
+
+    Average Convergence Time (Epochs): 452.5000 with s.d. 117.1377
+Total Time Taken: 0.4253 hrs
+Average Time Per Epoch: 0.6659 s
+
+
+All Splits Test Accuracies: [0.6890756302521008, 0.7542372881355932, 0.6610169491525424, 0.7711864406779662]

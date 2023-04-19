@@ -1,0 +1,10 @@
+Dataset: PROTEINS_full,
+Model: MLP
+
+params={'seed': 96, 'epochs': 100, 'batch_size': 20, 'init_lr': 0.0001, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-06, 'weight_decay': 0.0, 'print_epoch_interval': 5, 'max_time': 12}
+
+net_params={'L': 3, 'hidden_dim': 108, 'out_dim': 108, 'readout': 'mean', 'gated': False, 'in_feat_dropout': 0.0, 'dropout': 0.0, 'layer_norm': False, 'pos_enc': False, 'lap_pos_enc': False, 'pos_enc_dim': 2, 'device': device(type='cuda'), 'gpu_id': 1, 'batch_size': 20, 'in_dim': 29, 'n_classes': 2, 'total_param': 34211}
+
+
+Total Parameters: 34211
+

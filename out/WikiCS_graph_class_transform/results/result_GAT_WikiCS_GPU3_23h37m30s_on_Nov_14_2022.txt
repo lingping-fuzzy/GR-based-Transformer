@@ -1,0 +1,37 @@
+Dataset: WikiCS,
+Model: GAT
+
+params={'seed': 46, 'epochs': 1000, 'init_lr': 0.01, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-05, 'weight_decay': 0.0005, 'print_epoch_interval': 5, 'max_time': 24}
+
+net_params={'L': 2, 'n_heads': 2, 'hidden_dim': 45, 'out_dim': 90, 'residual': True, 'readout': 'sum', 'in_feat_dropout': 0.0, 'dropout': 0.6, 'batch_norm': True, 'self_loop': False, 'pos_enc': False, 'pos_enc_dim': 30, 'lap_pos_enc': False, 'layer_norm': False, 'hidden_rank': 2, 'global_batch': False, 'global_attention_type': 'transform', 'use_dense': False, 'mask_rate': 0.05, 'use_bias': False, 'device': device(type='cuda'), 'gpu_id': 3, 'in_dim': 300, 'n_classes': 10, 'total_param': 132507}
+
+GATNet(
+  (embedding_h): Linear(in_features=300, out_features=90, bias=True)
+  (in_feat_dropout): Dropout(p=0.0, inplace=False)
+  (layers): ModuleList(
+    (0): GraphTransformerLayer(in_channels=90, out_channels=90, heads=2, residual=True)
+    (1): GraphTransformerLayer(in_channels=90, out_channels=90, heads=2, residual=True)
+  )
+  (MLP_layer): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=90, out_features=45, bias=True)
+      (1): Linear(in_features=45, out_features=22, bias=True)
+      (2): Linear(in_features=22, out_features=10, bias=True)
+    )
+  )
+)
+
+Total Parameters: 132507
+
+
+    FINAL RESULTS
+TEST ACCURACY averaged: 76.4238 with s.d. 0.8435
+TRAIN ACCURACY averaged: 100.0000 with s.d. 0.0000
+
+
+    Average Convergence Time (Epochs): 285.0000 with s.d. 1.2247
+Total Time Taken: 0.0610 hrs
+Average Time Per Epoch: 0.1804 s
+
+
+All Splits Test Accuracies: [0.7685992816829144, 0.7595348041730802, 0.7754403967846759, 0.7533778005814948]

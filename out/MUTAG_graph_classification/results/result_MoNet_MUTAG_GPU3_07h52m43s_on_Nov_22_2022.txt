@@ -1,0 +1,52 @@
+Dataset: MUTAG,
+Model: MoNet
+
+params={'seed': 13, 'epochs': 1000, 'batch_size': 20, 'init_lr': 0.0007, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-06, 'weight_decay': 0.0, 'print_epoch_interval': 5, 'max_time': 12}
+
+net_params={'L': 2, 'hidden_dim': 30, 'out_dim': 30, 'residual': True, 'readout': 'mean', 'kernel': 3, 'pseudo_dim_MoNet': 2, 'in_feat_dropout': 0.0, 'dropout': 0.1, 'batch_norm': True, 'layer_norm': False, 'pos_enc': True, 'lap_pos_enc': True, 'pos_enc_dim': 4, 'device': device(type='cuda'), 'gpu_id': 3, 'batch_size': 20, 'in_dim': 7, 'n_classes': 2, 'total_param': 6449}
+
+MoNet(
+  (embedding_h): Linear(in_features=7, out_features=30, bias=True)
+  (layers): ModuleList(
+    (0): GMMLayer(
+      (fc): Linear(in_features=30, out_features=90, bias=False)
+      (bn_node_h): BatchNorm1d(30, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): GMMLayer(
+      (fc): Linear(in_features=30, out_features=90, bias=False)
+      (bn_node_h): BatchNorm1d(30, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (pseudo_proj): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=2, out_features=2, bias=True)
+      (1): Tanh()
+    )
+    (1): Sequential(
+      (0): Linear(in_features=2, out_features=2, bias=True)
+      (1): Tanh()
+    )
+  )
+  (MLP_layer): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=30, out_features=15, bias=True)
+      (1): Linear(in_features=15, out_features=7, bias=True)
+      (2): Linear(in_features=7, out_features=2, bias=True)
+    )
+  )
+)
+
+Total Parameters: 6449
+
+
+    FINAL RESULTS
+TEST ACCURACY averaged: 90.7895 with s.d. 5.7354
+TRAIN ACCURACY averaged: 90.1667 with s.d. 2.5981
+
+
+    Average Convergence Time (Epochs): 377.5000 with s.d. 43.2290
+Total Time Taken: 0.0648 hrs
+Average Time Per Epoch: 0.1448 s
+
+
+All Splits Test Accuracies: [1.0, 0.8947368421052632, 0.8421052631578947, 0.8947368421052632]

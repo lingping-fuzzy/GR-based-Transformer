@@ -1,0 +1,37 @@
+Dataset: PROTEINS_full,
+Model: GAT
+
+params={'seed': 42, 'epochs': 100, 'batch_size': 20, 'init_lr': 0.0001, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-06, 'weight_decay': 0.0, 'print_epoch_interval': 5, 'max_time': 12}
+
+net_params={'L': 2, 'hidden_dim': 100, 'out_dim': 100, 'residual': True, 'readout': 'mean', 'n_heads': 1, 'in_feat_dropout': 0.0, 'dropout': 0.0, 'batch_norm': True, 'self_loop': False, 'pos_enc': False, 'lap_pos_enc': False, 'pos_enc_dim': 2, 'layer_norm': False, 'hidden_rank': 2, 'global_batch': True, 'global_attention_type': 'global-max', 'use_dense': False, 'mask_rate': 0.05, 'use_bias': False, 'device': device(type='cuda'), 'gpu_id': 0, 'batch_size': 20, 'in_dim': 29, 'n_classes': 2, 'total_param': 131777}
+
+GATNet(
+  (embedding_h): Linear(in_features=29, out_features=100, bias=True)
+  (in_feat_dropout): Dropout(p=0.0, inplace=False)
+  (layers): ModuleList(
+    (0): GraphTransformerLayer(in_channels=100, out_channels=100, heads=1, residual=True)
+    (1): GraphTransformerLayer(in_channels=100, out_channels=100, heads=1, residual=True)
+  )
+  (MLP_layer): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=100, out_features=50, bias=True)
+      (1): Linear(in_features=50, out_features=25, bias=True)
+      (2): Linear(in_features=25, out_features=2, bias=True)
+    )
+  )
+)
+
+Total Parameters: 131777
+
+
+    FINAL RESULTS
+TEST ACCURACY averaged: 62.5523 with s.d. 1.9083
+TRAIN ACCURACY averaged: 60.7081 with s.d. 0.7395
+
+
+    Average Convergence Time (Epochs): 99.0000 with s.d. 0.0000
+Total Time Taken: 0.2588 hrs
+Average Time Per Epoch: 2.2969 s
+
+
+All Splits Test Accuracies: [0.625, 0.6428571428571429, 0.5945945945945946, 0.6396396396396397]

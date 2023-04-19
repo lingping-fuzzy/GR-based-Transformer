@@ -1,0 +1,44 @@
+Dataset: WikiCS,
+Model: MLP
+
+params={'seed': 96, 'epochs': 1000, 'init_lr': 0.01, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-05, 'weight_decay': 0.0005, 'print_epoch_interval': 5, 'max_time': 24}
+
+net_params={'L': 3, 'hidden_dim': 99, 'out_dim': 99, 'readout': 'mean', 'gated': False, 'in_feat_dropout': 0.0, 'dropout': 0.6, 'batch_norm': True, 'self_loop': False, 'pos_enc': False, 'pos_enc_dim': 30, 'lap_pos_enc': False, 'device': device(type='cuda'), 'gpu_id': 1, 'in_dim': 300, 'n_classes': 10, 'total_param': 65849}
+
+MLPNet(
+  (embedding_h): Linear(in_features=300, out_features=99, bias=True)
+  (in_feat_dropout): Dropout(p=0.0, inplace=False)
+  (feat_mlp): Sequential(
+    (0): Linear(in_features=99, out_features=99, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.6, inplace=False)
+    (3): Linear(in_features=99, out_features=99, bias=True)
+    (4): ReLU()
+    (5): Dropout(p=0.6, inplace=False)
+    (6): Linear(in_features=99, out_features=99, bias=True)
+    (7): ReLU()
+    (8): Dropout(p=0.6, inplace=False)
+  )
+  (readout_mlp): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=99, out_features=49, bias=True)
+      (1): Linear(in_features=49, out_features=24, bias=True)
+      (2): Linear(in_features=24, out_features=10, bias=True)
+    )
+  )
+)
+
+Total Parameters: 65849
+
+
+    FINAL RESULTS
+TEST ACCURACY averaged: 58.9619 with s.d. 2.0966
+TRAIN ACCURACY averaged: 82.7931 with s.d. 5.3896
+
+
+    Average Convergence Time (Epochs): 314.5500 with s.d. 15.7812
+Total Time Taken: 0.0258 hrs
+Average Time Per Epoch: 0.0107 s
+
+
+All Splits Test Accuracies: [0.5835471181802634, 0.5963742089960664, 0.6042414913630921, 0.6179237215666153, 0.5794424491192064, 0.5700359158542843, 0.6009919616897554, 0.6074910210364289, 0.582007867282367, 0.5457499572430307, 0.5898751496493928, 0.6187788609543355, 0.5724303061399008, 0.6268171711989055, 0.5691807764665641, 0.5608004104669061, 0.5756798358132376, 0.6064648537711647, 0.5763639473234137, 0.608175132546605]

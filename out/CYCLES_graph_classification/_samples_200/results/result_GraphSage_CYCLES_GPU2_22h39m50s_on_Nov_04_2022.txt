@@ -1,0 +1,37 @@
+Dataset: CYCLES,
+Model: GraphSage
+
+params={'seed': 13, 'epochs': 1000, 'batch_size': 25, 'init_lr': 0.0001, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 10, 'min_lr': 1e-06, 'weight_decay': 0.0, 'print_epoch_interval': 5, 'max_time': 12}
+
+net_params={'num_train_data': 200, 'L': 3, 'hidden_dim': 120, 'in_dim': 1, 'out_dim': 120, 'residual': True, 'readout': 'sum', 'in_feat_dropout': 0.0, 'dropout': 0.0, 'batch_norm': True, 'sage_aggregator': 'maxpool', 'pos_enc': True, 'pos_enc_dim': 20, 'lap_pos_enc': True, 'layer_norm': False, 'device': device(type='cuda'), 'gpu_id': 2, 'batch_size': 25, 'in_dim_edge': 1, 'n_classes': 2, 'total_param': 140432}
+
+GraphSageNet(
+  (embedding_h): Linear(in_features=1, out_features=120, bias=True)
+  (in_feat_dropout): Dropout(p=0.0, inplace=False)
+  (layers): ModuleList(
+    (0): GraphSageLayer(in_channels=120, out_channels=120, aggregator=maxpool, residual=True)
+    (1): GraphSageLayer(in_channels=120, out_channels=120, aggregator=maxpool, residual=True)
+    (2): GraphSageLayer(in_channels=120, out_channels=120, aggregator=maxpool, residual=True)
+  )
+  (MLP_layer): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=120, out_features=60, bias=True)
+      (1): Linear(in_features=60, out_features=30, bias=True)
+      (2): Linear(in_features=30, out_features=2, bias=True)
+    )
+  )
+)
+
+Total Parameters: 140432
+
+
+    FINAL RESULTS
+TEST ACCURACY: 50.0000
+TRAIN ACCURACY: 50.0000
+
+
+    Convergence Time (Epochs): 77.0000
+Total Time Taken: 0.1391 hrs
+Average Time Per Epoch: 3.4822 s
+
+

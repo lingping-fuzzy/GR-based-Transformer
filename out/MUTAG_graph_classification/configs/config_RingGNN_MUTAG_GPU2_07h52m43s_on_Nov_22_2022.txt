@@ -1,0 +1,10 @@
+Dataset: MUTAG,
+Model: RingGNN
+
+params={'seed': 36, 'epochs': 1000, 'batch_size': 20, 'init_lr': 0.0007, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-06, 'weight_decay': 0.0, 'print_epoch_interval': 5, 'max_time': 12}
+
+net_params={'L': 2, 'hidden_dim': 30, 'out_dim': 30, 'radius': 2, 'residual': False, 'dropout': 0.1, 'layer_norm': False, 'pos_enc': True, 'lap_pos_enc': True, 'pos_enc_dim': 4, 'device': device(type='cuda'), 'gpu_id': 2, 'batch_size': 20, 'in_dim': 7, 'n_classes': 2, 'avg_node_num': 18, 'total_param': 54521}
+
+
+Total Parameters: 54521
+

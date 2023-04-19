@@ -1,0 +1,60 @@
+Dataset: PROTEINS_full,
+Model: MoNet
+
+params={'seed': 13, 'epochs': 100, 'batch_size': 20, 'init_lr': 0.0001, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-06, 'weight_decay': 0.0, 'print_epoch_interval': 5, 'max_time': 12}
+
+net_params={'L': 3, 'hidden_dim': 108, 'out_dim': 108, 'residual': True, 'readout': 'mean', 'kernel': 3, 'pseudo_dim_MoNet': 2, 'in_feat_dropout': 0.0, 'dropout': 0.0, 'batch_norm': True, 'layer_norm': False, 'pos_enc': False, 'lap_pos_enc': False, 'pos_enc_dim': 2, 'device': device(type='cuda'), 'gpu_id': 3, 'batch_size': 20, 'in_dim': 29, 'n_classes': 2, 'total_param': 116669}
+
+MoNet(
+  (embedding_h): Linear(in_features=29, out_features=108, bias=True)
+  (layers): ModuleList(
+    (0): GMMLayer(
+      (fc): Linear(in_features=108, out_features=324, bias=False)
+      (bn_node_h): BatchNorm1d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): GMMLayer(
+      (fc): Linear(in_features=108, out_features=324, bias=False)
+      (bn_node_h): BatchNorm1d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (2): GMMLayer(
+      (fc): Linear(in_features=108, out_features=324, bias=False)
+      (bn_node_h): BatchNorm1d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (pseudo_proj): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=2, out_features=2, bias=True)
+      (1): Tanh()
+    )
+    (1): Sequential(
+      (0): Linear(in_features=2, out_features=2, bias=True)
+      (1): Tanh()
+    )
+    (2): Sequential(
+      (0): Linear(in_features=2, out_features=2, bias=True)
+      (1): Tanh()
+    )
+  )
+  (MLP_layer): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=108, out_features=54, bias=True)
+      (1): Linear(in_features=54, out_features=27, bias=True)
+      (2): Linear(in_features=27, out_features=2, bias=True)
+    )
+  )
+)
+
+Total Parameters: 116669
+
+
+    FINAL RESULTS
+TEST ACCURACY averaged: 76.8983 with s.d. 2.8582
+TRAIN ACCURACY averaged: 77.9653 with s.d. 0.4575
+
+
+    Average Convergence Time (Epochs): 99.0000 with s.d. 0.0000
+Total Time Taken: 0.1209 hrs
+Average Time Per Epoch: 1.0653 s
+
+
+All Splits Test Accuracies: [0.7767857142857143, 0.7946428571428571, 0.7207207207207207, 0.7837837837837838]

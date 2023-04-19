@@ -1,0 +1,10 @@
+Dataset: PROTEINS_full,
+Model: GAT
+
+params={'seed': 42, 'epochs': 100, 'batch_size': 20, 'init_lr': 0.0001, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-06, 'weight_decay': 0.0, 'print_epoch_interval': 5, 'max_time': 12}
+
+net_params={'L': 2, 'hidden_dim': 100, 'out_dim': 100, 'residual': True, 'readout': 'mean', 'n_heads': 1, 'in_feat_dropout': 0.0, 'dropout': 0.0, 'batch_norm': True, 'self_loop': False, 'pos_enc': False, 'lap_pos_enc': False, 'pos_enc_dim': 2, 'layer_norm': False, 'hidden_rank': 2, 'global_batch': True, 'global_attention_type': 'global-max', 'use_dense': False, 'mask_rate': 0.05, 'use_bias': False, 'device': device(type='cuda'), 'gpu_id': 0, 'batch_size': 20, 'in_dim': 29, 'n_classes': 2, 'total_param': 131777}
+
+
+Total Parameters: 131777
+

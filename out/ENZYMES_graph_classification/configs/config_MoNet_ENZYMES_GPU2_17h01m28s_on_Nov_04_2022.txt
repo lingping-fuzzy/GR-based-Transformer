@@ -1,0 +1,10 @@
+Dataset: ENZYMES,
+Model: MoNet
+
+params={'seed': 13, 'epochs': 1000, 'batch_size': 20, 'init_lr': 0.001, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-06, 'weight_decay': 0.0, 'print_epoch_interval': 5, 'max_time': 12}
+
+net_params={'L': 3, 'hidden_dim': 72, 'out_dim': 72, 'residual': True, 'readout': 'mean', 'kernel': 3, 'pseudo_dim_MoNet': 2, 'in_feat_dropout': 0.0, 'dropout': 0.0, 'batch_norm': True, 'pos_enc': False, 'lap_pos_enc': False, 'pos_enc_dim': 2, 'layer_norm': False, 'device': device(type='cuda'), 'gpu_id': 2, 'batch_size': 20, 'in_dim': 18, 'n_classes': 6, 'total_param': 52134}
+
+
+Total Parameters: 52134
+

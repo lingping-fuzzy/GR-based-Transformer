@@ -1,0 +1,60 @@
+Dataset: WikiCS,
+Model: MoNet
+
+params={'seed': 96, 'epochs': 1000, 'init_lr': 0.01, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-05, 'weight_decay': 0.0005, 'print_epoch_interval': 5, 'max_time': 24}
+
+net_params={'L': 3, 'hidden_dim': 99, 'out_dim': 99, 'residual': True, 'readout': 'mean', 'kernel': 3, 'pseudo_dim_MoNet': 2, 'in_feat_dropout': 0.0, 'dropout': 0.6, 'batch_norm': True, 'self_loop': False, 'pos_enc': False, 'pos_enc_dim': 30, 'lap_pos_enc': False, 'device': device(type='cuda'), 'gpu_id': 1, 'in_dim': 300, 'n_classes': 10, 'total_param': 125303}
+
+MoNet(
+  (embedding_h): Linear(in_features=300, out_features=99, bias=True)
+  (layers): ModuleList(
+    (0): GMMLayer(
+      (fc): Linear(in_features=99, out_features=297, bias=False)
+      (bn_node_h): BatchNorm1d(99, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): GMMLayer(
+      (fc): Linear(in_features=99, out_features=297, bias=False)
+      (bn_node_h): BatchNorm1d(99, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (2): GMMLayer(
+      (fc): Linear(in_features=99, out_features=297, bias=False)
+      (bn_node_h): BatchNorm1d(99, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (pseudo_proj): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=2, out_features=2, bias=True)
+      (1): Tanh()
+    )
+    (1): Sequential(
+      (0): Linear(in_features=2, out_features=2, bias=True)
+      (1): Tanh()
+    )
+    (2): Sequential(
+      (0): Linear(in_features=2, out_features=2, bias=True)
+      (1): Tanh()
+    )
+  )
+  (MLP_layer): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=99, out_features=49, bias=True)
+      (1): Linear(in_features=49, out_features=24, bias=True)
+      (2): Linear(in_features=24, out_features=10, bias=True)
+    )
+  )
+)
+
+Total Parameters: 125303
+
+
+    FINAL RESULTS
+TEST ACCURACY averaged: 77.8091 with s.d. 1.0511
+TRAIN ACCURACY averaged: 97.4569 with s.d. 0.7842
+
+
+    Average Convergence Time (Epochs): 395.0000 with s.d. 6.9642
+Total Time Taken: 0.0571 hrs
+Average Time Per Epoch: 0.1196 s
+
+
+All Splits Test Accuracies: [0.7841628185394219, 0.7638105011116813, 0.7913459893962715, 0.7730460064990593]

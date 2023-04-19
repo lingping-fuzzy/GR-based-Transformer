@@ -1,0 +1,10 @@
+Dataset: DD,
+Model: RingGNN
+
+params={'seed': 36, 'epochs': 1000, 'batch_size': 4, 'init_lr': 0.0001, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-06, 'weight_decay': 0.0, 'print_epoch_interval': 5, 'max_time': 12}
+
+net_params={'L': 2, 'hidden_dim': 20, 'radius': 2, 'residual': False, 'dropout': 0.0, 'layer_norm': False, 'pos_enc': True, 'lap_pos_enc': True, 'pos_enc_dim': 2, 'device': device(type='cuda'), 'gpu_id': 1, 'batch_size': 4, 'in_dim': 89, 'n_classes': 2, 'avg_node_num': 285, 'total_param': 109857}
+
+
+Total Parameters: 109857
+

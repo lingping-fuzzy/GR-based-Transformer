@@ -1,0 +1,47 @@
+{
+    "gpu": {
+        "use": true,
+        "id": 0
+    },
+    
+    "model": "GAT",
+    "dataset": "WikiCS",
+    
+    "out_dir": "out/WikiCS_graph_class_two_only_mean/",
+    
+    "params": {
+        "seed": 41,
+        "epochs": 1000,
+        "init_lr": 1e-2,
+        "lr_reduce_factor": 0.5,
+        "lr_schedule_patience": 25,
+        "min_lr": 1e-5,
+        "weight_decay": 5e-4,
+        "print_epoch_interval": 5,
+        "max_time": 24
+    },
+    
+    "net_params": {
+        "L": 2,
+        "n_heads": 2,
+        "hidden_dim": 45,
+        "out_dim": 90,
+        "residual": true,
+        "readout": "sum",
+        "in_feat_dropout": 0.0,
+        "dropout": 0.6,
+        "batch_norm": true,
+        "self_loop": false,
+
+        "pos_enc": false,
+        "pos_enc_dim": 30,
+        "lap_pos_enc": false,
+        "layer_norm": false,
+        "hidden_rank": 2,
+        "global_batch": false,
+        "global_attention_type": "twohop-onlymean",
+        "use_dense": false,
+        "mask_rate": 0.05,
+        "use_bias": false
+    }
+}
