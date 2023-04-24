@@ -1,7 +1,3 @@
-ERROR:
-    self._handle = _dlopen(self._name, mode)
-OSError: [WinError 127] The specified procedure could not be found  --- VERSION IS WRONG, REINSTALL WITH CORRECT VERSION.
-
 # GR-representation Transformer Architecture
 
 Source code for the paper "**[Low-Rank and Global-Representation-Key-based Attention for Graph Transformer](link to paper)**".
