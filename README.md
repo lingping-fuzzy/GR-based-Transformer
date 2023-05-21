@@ -1,6 +1,6 @@
 # GR-representation Transformer Architecture
 
-Source code for the paper "**[Low-Rank and Global-Representation-Key-based Attention for Graph Transformer](link to paper)**".
+Source code for the paper "**[Low-Rank and Global-Representation-Key-based Attention for Graph Transformer]([link to paper](https://www.sciencedirect.com/science/article/pii/S002002552300693X?dgcid=coauthor))**".
 
 Low-Rank and Global-Representation-Key-based Attention : 
 - We proposed a low-rank GR-Key-based attention mechanism, where the global representation(s) forms the \textit{Key} providing the structural importance of neighbor nodes. This proposed attention method decreases the training parameter number and is adjustable to the latent feature rank. 
@@ -24,7 +24,7 @@ Low-Rank and Global-Representation-Key-based Attention :
 ## 1. Repo installation
 
 This project is based on the [benchmarking-gnns](https://github.com/graphdeeplearning/benchmarking-gnns) repository.
-and [Vijay Prakash Dwivedi](https://github.com/vijaydwivedi75) and [Xavier Bresson](https://github.com/xbresson)_
+and [Vijay Prakash Dwivedi](https://github.com/vijaydwivedi75), [graphdeeplearning/graphtransformer](https://github.com/graphdeeplearning/graphtransformer) and [Xavier Bresson](https://github.com/xbresson)_
 [Follow these instructions](./docs/01_benchmark_installation.md) to install the benchmark and setup the environment.
 
 
@@ -39,7 +39,7 @@ please read the docs
 ## 4. Reference 
  
 ```
-
+[1] [graphTransformer](https://arxiv.org/abs/2012.09699)
 ```
 
 
