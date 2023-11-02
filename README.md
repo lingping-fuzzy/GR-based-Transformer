@@ -41,7 +41,19 @@ please read the docs
 ```
 [1] [graphTransformer](https://arxiv.org/abs/2012.09699)
 ```
-
+## Citation
+If you find our work relevant to your research, please cite:
+```
+@article{kong2023low,
+  title={Low-rank and global-representation-key-based attention for graph transformer},
+  author={Kong, Lingping and Ojha, Varun and Gao, Ruobin and Suganthan, Ponnuthurai Nagaratnam and Sn{\'a}{\v{s}}el, V{\'a}clav},
+  journal={Information Sciences},
+  volume={642},
+  pages={119108},
+  year={2023},
+  publisher={Elsevier}
+}
+```
 
 <br><br><br>
 
